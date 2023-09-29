@@ -12,3 +12,7 @@ and the smallest number of moves.*
 
 *To make this happen, you will have to manipulate various sorting algorithms and\
 choose the most appropriate solution(s) for optimized data sorting.*
+
+ Skills | Grade |
+:------:|:-----:|
+[**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed**
