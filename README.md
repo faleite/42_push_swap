@@ -15,4 +15,4 @@ choose the most appropriate solution(s) for optimized data sorting.*
 
  Skills | Grade |
 :------:|:-----:|
-[**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed**
+[**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed :atom:**
