@@ -25,5 +25,6 @@
 	- se tamanho da stack == 3, fazer funçaõ de ordenação especifica
 6. criar função que libera a stack (free)
 
-## Memory Process
-[<img align="center" src="./memory_process.png" width="50%"/>](./memory_process.png)
+## [Linked list](./linked_list.md)
+
+## [Memory Process](./memory_process.png)
