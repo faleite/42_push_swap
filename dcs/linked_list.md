@@ -167,3 +167,77 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 ```
+### 5 ***Adding elements to the beginning of a linked list***
+```c
+void insert_beginning(Node** root, int value) {
+    Node* new_node = malloc(sizeof(Node));
+    if (new_node == NULL)
+        exit(3);
+
+	// Atribute the value to the new node.
+    new_node->x = value;
+	// Atribute the root to the next node.
+    new_node->next = *root;
+
+	// Atribute the new node to the root.
+    *root = new_node;
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_end(&root, -2);
+    insert_end(&root, 11);
+    insert_end(&root, 22);
+    insert_beginning(&root, 50);
+    insert_beginning(&root, 17);
+
+    // Iterate over the linked list with a while loop.
+	Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x);
+		curr = curr->next;
+	}
+
+	// Function to deallocate the linked list.
+    deallocate(&root);
+
+    return 0;
+}
+
+### 6 ***Add after element in a linked list***
+```c
+void insert_after(Node* node, int value) {
+	Node* new_node = malloc(sizeof(Node));
+	if (new_node == NULL)
+		exit(4);
+
+	// Atribute the value to the new node.
+	new_node->x = value;
+	// Atribute the next node to the new node.
+	new_node->next = node->next;
+	// Atribute the new node to the next node of the node.
+	node->next = new_node;
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_end(&root, -2); // root
+    insert_end(&root, 11); // root->next
+    insert_end(&root, 22); // root->next->next
+    insert_beginning(&root, 30); // root
+    insert_after(root->next, 55); // root->next->next
+
+	Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x); // output: 30, -2, 55, 11, 22
+		curr = curr->next;
+	}
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
