@@ -1,6 +1,8 @@
 ## [Linked list](https://www.youtube.com/playlist?)
 [<img align="center" src="./linked_list.png" width="75%"/>](./linked_list.png)
 
+## Simple linked list
+
 ### 1. ***Short introduction to linked lists***
 ```c
 // This used for all examples below.
@@ -204,8 +206,9 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+```
 
-### 6 ***Add after element in a linked list***
+### 6. ***Add after element in a linked list***
 ```c
 void insert_after(Node* node, int value) {
 	Node* new_node = malloc(sizeof(Node));
@@ -234,6 +237,237 @@ int main(int argc, char* argv[]) {
 		printf("%d\n", curr->x); // output: 30, -2, 55, 11, 22
 		curr = curr->next;
 	}
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
+### 7. ***Sorted insert in a linked list***
+```c
+void insert_sorted(Node** root, int value) {
+    // If the root is NULL or the value is smaller than the root value, insert at the beginning.
+    // (**root).x is the same as (*root)->x
+    if (*root == NULL || (**root).x >= value) {
+        insert_beginning(root, value);
+        return;
+    }
+
+    Node* curr = *root;
+    while (curr->next != NULL) {
+        if (curr->next->x >= value) {
+            insert_after(curr, value);
+            return;
+        }
+        curr = curr->next;
+    }
+
+    insert_after(curr, value);
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_sorted(&root, 11);
+    insert_sorted(&root, 55);
+    insert_sorted(&root, -2);
+    insert_sorted(&root, 22);
+    insert_sorted(&root, 30);
+
+    Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x);
+		curr = curr->next;
+	}
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
+### 8. ***Removing an element from a linked list***
+```c
+void    remove_element(Node **root, int value)
+{
+    if (*root == NULL)
+        return ;
+
+    // for removing the first element
+    if ((*root)->x == value)
+    {
+        Node *to_remove = *root;
+        *root = (*root)->next;
+        free(to_remove);
+        return ;
+    }
+
+    Node *curr = *root;
+    while (curr != NULL && curr->next != NULL)
+    {
+        if (curr->next->x == value)
+        {
+            Node *to_remove = curr->next;
+            curr->next = curr->next->next;
+            free(to_remove);
+            return ;
+        }
+        curr = curr->next;
+    }
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_sorted(&root, 1);
+    insert_sorted(&root, 3);
+    insert_sorted(&root, 5);
+    insert_sorted(&root, 6);
+
+    remove_element(&root, 6);
+
+    Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x);
+		curr = curr->next;
+	}
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
+### 9. ***Reversing a linked list***
+
+1 | 3 | 6
+:-----:|:-----:|:-----:
+prev | curr | next
+
+```c
+// Treta para entender o reverse mais funciona lindamente
+void  reverse(Node **root)
+{
+    Node *prev = NULL;
+    Node *curr = *root;
+
+    while (curr != NULL)
+    {
+        Node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    *root = prev;
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_end(&root, 1);
+    insert_end(&root, 3);
+    insert_end(&root, 6);
+
+    reverse(&root);
+
+    Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x);
+		curr = curr->next;
+	}
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
+### 10. ***Finding loops/cycles in a linked list***
+```c
+void has_loops(Node* root) {
+    Node* slow = NULL;
+    Node* fast = NULL;
+
+    while (slow != NULL && fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_sorted(&root, 11);
+    insert_sorted(&root, 55);
+    insert_sorted(&root, -2);
+    insert_sorted(&root, 22);
+    insert_sorted(&root, 30);
+
+    reverse(&root);
+
+    if (has_loops(root)) {
+        printf("List has loops\n");
+    } else {
+        // Iterate only if doesn't have loops
+        for (Node* curr = root; curr != NULL; curr = curr->next) {
+            printf("%d\n", curr->x);
+        }
+    }
+
+    deallocate(&root);
+
+    return 0;
+}
+```
+
+### 11. ***Counting number of elements (iteratively and recursively) in a linked list***
+```c
+int count(Node *root)
+{
+    int c = 0;
+
+    Node *curr = root;
+    while (curr != NULL)
+    {
+        curr = curr->next;
+        c++;
+    }
+    return (c);
+}
+
+int count_recursive(Node *node)
+{
+    if (node == NULL)
+        return 0;
+    return (1 + count_recursive(node->next));
+}
+
+int main(int argc, char* argv[]) {
+    Node* root = NULL;
+
+    insert_end(&root, 1);
+    insert_end(&root, 2);
+    insert_end(&root, 3);
+    insert_end(&root, 4);
+    insert_end(&root, 5);
+    insert_end(&root, 6);
+    insert_end(&root, 7);
+    insert_end(&root, 8);
+
+    Node* curr = root;
+	while (curr != NULL) {
+		printf("%d\n", curr->x);
+		curr = curr->next;
+	}
+
+    // printf("Linked list has %d elements\n", count(root));
+    printf("Linked list has %d elements\n", count_recursive(root));
 
     deallocate(&root);
 
