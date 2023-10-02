@@ -5,163 +5,152 @@
 typedef struct Node {
     int x;
     struct Node* next;
+    struct Node* prev;
 } Node;
 
-void deallocate(Node** root) {
-    Node* curr = *root;
-    while (curr != NULL) {
-        Node* aux = curr;
-        curr = curr->next;
-        free(aux);
-    }
-    *root = NULL;
-}
-
-void insert_end(Node** root, int value) {
-    Node* new_node = malloc(sizeof(Node));
-    if (new_node == NULL) {
-        exit(1);
-    }
-    new_node->next = NULL;
-    new_node->x = value;
-
-    if (*root == NULL) {
-        *root = new_node;
+void deallocate(Node** tail, Node** head) {
+    if (*tail == NULL) {
         return;
     }
 
-    Node* curr = *root;
+    Node* curr = *tail;
     while (curr->next != NULL) {
         curr = curr->next;
+        free(curr->prev);
     }
-    curr->next = new_node;
+    free(curr);
+
+    *tail = NULL;
+    *head = NULL;
 }
 
-void insert_beginning(Node** root, int value) {
-    Node* new_node = malloc(sizeof(int));
+void insert_beginning(Node** tail, int value) {
+    Node* new_node = malloc(sizeof(Node));
+    if (new_node == NULL) {
+        exit(1);
+        return;
+    }
+
+    new_node->x = value;
+    new_node->prev = NULL;
+    new_node->next = *tail;
+    (*tail)->prev = new_node;
+    *tail = new_node;
+}
+
+void insert_end(Node** head, int value) {
+    Node* new_node = malloc(sizeof(Node));
     if (new_node == NULL) {
         exit(3);
-    }
-
-    new_node->x = value;
-    new_node->next = *root;
-
-    *root = new_node;
-}
-
-void insert_after(Node* node, int value) {
-    Node* new_node = malloc(sizeof(Node));
-    if (new_node == NULL) {
-        exit(1);
-    }
-
-    new_node->x = value;
-    new_node->next = node->next;
-    node->next = new_node;
-}
-
-void insert_sorted(Node** root, int value) {
-    if (*root == NULL || (**root).x >= value) {
-        insert_beginning(root, value);
         return;
     }
 
-    Node* curr = *root;
-    while (curr->next != NULL) {
-        if (curr->next->x >= value) {
-            insert_after(curr, value);
-            return;
-        }
-        curr = curr->next;
-    }
-
-    insert_after(curr, value);
+    new_node->x = value;
+    new_node->next = NULL;
+    new_node->prev = *head;
+    (*head)->next = new_node;
+    *head = new_node;
 }
 
-void    remove_element(Node **root, int value)
-{
-    if (*root == NULL)
-        return ;
-
-    if ((*root)->x == value)
-    {
-        Node *to_remove = *root;
-        *root = (*root)->next;
-        free(to_remove);
-        return ;
+void init(Node** tail, Node** head, int value) {
+    Node* new_node = malloc(sizeof(int));
+    if (new_node == NULL) {
+        exit(2);
+        return;
     }
 
-    Node *curr = *root;
-    while (curr != NULL && curr->next != NULL)
-    {
-        if (curr->next->x == value)
-        {
-            Node *to_remove = curr->next;
-            curr->next = curr->next->next;
-            free(to_remove);
-            return ;
-        }
-        curr = curr->next;
-    }
+    new_node->x = value;
+    new_node->prev = NULL;
+    new_node->next = NULL;
+
+    *tail = new_node;
+    *head = new_node;
 }
 
-void  reverse(Node **root)
+void	insert_after(Node *node, int value)
 {
-    Node *prev = NULL;
-    Node *curr = *root;
+	Node	*new_node = malloc(sizeof(Node));
 
-    while (curr != NULL)
-    {
-        Node *next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-    }
-    *root = prev;
+	if (new_node == NULL)
+		return ;
+
+	new_node->x = value;
+	new_node->prev = node;
+	new_node->next = node->next;
+
+	if (node->next != NULL)
+		node->next->prev = new_node;
+	node->next = new_node;
 }
 
-int count(Node *root)
+void	remove_node(Node *node)
 {
-    int c = 0;
-
-    Node *curr = root;
-    while (curr != NULL)
-    {
-        curr = curr->next;
-        c++;
-    }
-    return (c);
+	if (node->prev != NULL)
+		node->prev->next = node->next;
+	if (node->next != NULL)
+		node->next->prev = node->prev;
+	free(node);
 }
 
-int count_recursive(Node *node)
+Node	*find_node(Node *tail, int value)
 {
-    if (node == NULL)
-        return 0;
-    return (1 + count_recursive(node->next));
+	Node	*curr = tail;
+
+	while (curr != NULL)
+	{
+		if (curr->x == value)
+			return (curr);
+		curr = curr->next;
+	}
+	return (NULL);
+}
+
+Node	*find_node_recursive(Node *node, int value)
+{
+	if (node == NULL)
+		return (NULL);
+	if (node->x == value)
+		return (node);
+
+	return (find_node_recursive(node->next, value));
+}
+
+void	reverse(Node **tail, Node **head)
+{
+	Node	*curr = *tail;
+
+	while (curr != NULL)
+	{
+		Node	*next = curr->next;
+
+		curr->next = curr->prev;
+		curr->prev = next;
+
+		curr = next;
+	}
+
+	Node	*aux = *tail;
+	*tail = *head;
+	*head = aux;
 }
 
 int main(int argc, char* argv[]) {
-    Node* root = NULL;
+    Node* tail = NULL;
+    Node* head = NULL;
 
-    insert_end(&root, 1);
-    insert_end(&root, 2);
-    insert_end(&root, 3);
-    insert_end(&root, 4);
-    insert_end(&root, 5);
-    insert_end(&root, 6);
-    insert_end(&root, 7);
-    insert_end(&root, 8);
+    // init(&tail, &head, 7);
+    // insert_beginning(&tail, 3);
+    // insert_beginning(&tail, 1);
+	reverse(&tail, &head);
 
-    Node* curr = root;
-	while (curr != NULL) {
-		printf("%d\n", curr->x);
-		curr = curr->next;
-	}
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
 
-    printf("Linked list has %d elements\n", count(root));
-    printf("Linked list has %d elements\n", count_recursive(root));
-
-    deallocate(&root);
+    deallocate(&tail, &head);
 
     return 0;
 }

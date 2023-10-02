@@ -475,3 +475,374 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+## Doubly linked list
+
+[<img align="center" src="./doublyll.png" width="50%"/>](./doublyll.png)
+
+1. ***Iterating over doubly linked lists***
+```c
+// This used for all examples below.
+
+// You need this includes to use malloc, free, NULL, exit and printf.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Create a node that contains an integer and a pointer to the next node.
+typedef struct Node {
+    int x;
+    struct Node* next;
+    struct Node* prev;
+} Node;
+```
+
+```c
+int main(int argc, char* argv[]) {
+    Node* tail = malloc(sizeof(Node));
+    if (tail == NULL)
+        return 1;
+
+    tail->x = 1;
+    tail->prev = NULL;
+    tail->next = malloc(sizeof(Node));
+    if (tail->next == NULL)
+        return 2;
+
+    tail->next->x = 3;
+    tail->next->prev = tail;
+    tail->next->next = malloc(sizeof(Node));
+    if (tail->next->next == NULL)
+        return 3;
+
+    tail->next->next->x = 7;
+    tail->next->next->prev = tail->next;
+    tail->next->next->next = NULL;
+
+    Node* head = tail->next->next;
+
+    // Forward
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    printf("\n");
+
+    // Backwards
+    Node* curr1 = head;
+    while (curr1 != NULL)
+    {
+        printf("%d ", curr1->x);
+        curr1 = curr1->prev;
+    }
+
+    return 0;
+}
+```
+
+### 2. ***Deallocating a doubly linked list***
+```c
+void deallocate(Node** tail, Node** head) {
+    if (*tail == NULL) {
+        return;
+    }
+
+    Node* curr = *tail;
+    while (curr->next != NULL) {
+        curr = curr->next;
+        free(curr->prev);
+    }
+    free(curr);
+
+    *tail = NULL;
+    *head = NULL;
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = malloc(sizeof(Node));
+    if (tail == NULL) {
+        return 1;
+    }
+    tail->x = 1;
+    tail->prev = NULL;
+    tail->next = malloc(sizeof(Node));
+    if (tail->next == NULL) {
+        return 2;
+    }
+
+    tail->next->x = 3;
+    tail->next->prev = tail;
+    tail->next->next = malloc(sizeof(Node));
+    if (tail->next->next == NULL) {
+        return 3;
+    }
+
+    tail->next->next->x = 7;
+    tail->next->next->prev = tail->next;
+    tail->next->next->next = NULL;
+
+    Node* head = tail->next->next;
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 3. ***Add to the beginning of a doubly linked list***
+```c
+// init the doubly linked list
+void init(Node** tail, Node** head, int value) {
+    Node* new_node = malloc(sizeof(Node));
+    if (new_node == NULL) {
+        exit(2);
+        return;
+    }
+
+    new_node->x = value;
+    new_node->prev = NULL;
+    new_node->next = NULL;
+
+    *tail = new_node;
+    *head = new_node;
+}
+
+// insert at the beginning of the doubly linked list
+void insert_beginning(Node** tail, int value) {
+    Node* new_node = malloc(sizeof(Node));
+    if (new_node == NULL) {
+        exit(1);
+        return;
+    }
+
+    new_node->x = value;
+    new_node->prev = NULL;
+    new_node->next = *tail;
+    (*tail)->prev = new_node;
+    *tail = new_node;
+}
+
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+
+    Node* curr = head;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->prev;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 4. ***Add to the end of a doubly linked list***
+```c
+void insert_end(Node** head, int value) {
+    Node* new_node = malloc(sizeof(Node));
+    if (new_node == NULL) {
+        exit(3);
+        return;
+    }
+
+    new_node->x = value;
+    new_node->next = NULL;
+    new_node->prev = *head;
+    (*head)->next = new_node;
+    *head = new_node;
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+    insert_end(&head, 5);
+    insert_beginning(&tail, 0);
+    insert_end(&head, 6);
+
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 5. ***Add after element in a doubly linked list***
+```c
+void	insert_after(Node *node, int value)
+{
+	Node	*new_node = malloc(sizeof(Node));
+
+	if (new_node == NULL)
+		return ;
+
+	new_node->x = value;
+	new_node->prev = node;
+	new_node->next = node->next;
+
+	if (node->next != NULL)
+		node->next->prev = new_node;
+	node->next = new_node;
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+    insert_after(tail->next, 5); // Added after number 3
+
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 6. ***Removing a node from doubly linked lists***
+```c
+void	remove_node(Node *node)
+{
+	if (node->prev != NULL)
+		node->prev->next = node->next;
+	if (node->next != NULL)
+		node->next->prev = node->prev;
+	free(node);
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+	remove_node(tail->next); // Removed the number 3
+
+	// for removed de first number
+	Node * aux = tail->next;
+	remove_node(tail); // Removed the number 1
+	tail = aux;
+
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 7. ***Finding a node in a doubly linked list***
+```c
+Node	*find_node_recursive(Node *node, int value)
+{
+	if (node == NULL)
+		return (NULL);
+	if (node->x == value)
+		return (node);
+
+	return (find_node_recursive(node->next, value));
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+	// Node *found = find_node(tail, 4);
+	Node *found = find_node_recursive(tail, 4);
+
+	if (found == NULL)
+		printf("No node was found\n");
+	else
+		printf("value: %d; next: %p\n", found->x, found->next);
+
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
+
+### 8. ***Reversing a doubly linked list***
+```c
+void	reverse(Node **tail, Node **head)
+{
+	Node	*curr = *tail;
+
+	while (curr != NULL)
+	{
+		Node	*next = curr->next;
+
+		curr->next = curr->prev;
+		curr->prev = next;
+
+		curr = next;
+	}
+
+	Node	*aux = *tail;
+	*tail = *head;
+	*head = aux;
+}
+
+int main(int argc, char* argv[]) {
+    Node* tail = NULL;
+    Node* head = NULL;
+
+    init(&tail, &head, 7);
+    insert_beginning(&tail, 3);
+    insert_beginning(&tail, 1);
+	reverse(&tail, &head);
+
+    Node* curr = tail;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->x);
+        curr = curr->next;
+    }
+
+    deallocate(&tail, &head);
+
+    return 0;
+}
+```
