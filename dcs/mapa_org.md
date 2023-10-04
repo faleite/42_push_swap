@@ -6,11 +6,9 @@
 		- se argv[1][0] == NULL, sair do programa
 		- se argv[1][0] != NULL, continuar
 		- separar numeros de argv[1] para colocar na stack **a** (use ft_split)
-	- se argc > 2, continuar
-		- colocar numeros de argv em **a** use ft_split
 			- *Você pode adicionar em malloc do array mais 2 espaços: para NULL\
 			e para o argv[0] que é o nome do programa.* (Mais facil para inicializar a stack)
-			- Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)
+	- se argc > 2, continuar
 	- se argvs não forem numeros, sair do programa com *Error*
 		- ex: --12, hello, 12a, 12.3, 12.3.4, 12,3,4,
 	- Converter os num em inteiros
@@ -21,6 +19,7 @@
 		- se num < INT_MIN, sair do programa com *Error*
 	- verificar se num é duplicado, se duplicado, sair do programa com *Error*
 	- se tudo ok, adicionar num na stack **a**
+		- Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)
 2. Criar uma struct de stack
 	- Ex declaração: t_stack_node
 	- criar stack **a** e **b** -> t_stack_node *a, t_stack_node *b;

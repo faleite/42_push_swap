@@ -34,6 +34,7 @@ choose the most appropriate solution(s) for optimized data sorting.*
 - ### [Short introduction to header files in C](https://www.youtube.com/watch?v=u1e0gLoz1SU)
 - ### [How pointer strings are immutable in C?](https://www.youtube.com/watch?v=RbcAHJOWVzw)
 - ### [ The C programming language: Declarations, not that simple bro!](https://www.youtube.com/watch?v=WksGf6DKwXA)
+- ### [Tutorial Duarte from 42 Lisboa](https://github.com/duarte3333/Push_Swap)
 ## Tools
 ### [Random list](https://www.random.org/integer-sets/?sets=1&num=500&min=1&max=2000&seqnos=on&order=index&format=html&rnd=new)
 ### [Tester](https://github.com/LeoFu9487/push_swap_tester)
