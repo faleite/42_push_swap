@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/04 21:45:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:31:50 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 /* Utils */
 char	**ft_split(char const *s, char c);
-void    err_case(void);
-void    check_args(int argc, char *argv[]);
+void	err_case(void);
+void	check_args(int argc, char *argv[]);
 int		validate_arguments(char *argv[]);
 
 #endif /* PUSH_SWAP_H */
