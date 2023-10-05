@@ -1,22 +1,22 @@
 ## Mapa organizacional
 ### Parte #1
 1. Verificar se a entrada é valida
-	- se argc == 1, sair do programa
-	- se argc == 2, continuar
-		- se argv[1][0] == NULL, sair do programa
-		- se argv[1][0] != NULL, continuar
-		- separar numeros de argv[1] para colocar na stack **a** (use ft_split)
-			- *Você pode adicionar em malloc do array mais 2 espaços: para NULL\
-			e para o argv[0] que é o nome do programa.* (Mais facil para inicializar a stack)
-	- se argc > 2, continuar
-	- se argvs não forem numeros, sair do programa com *Error*
-		- ex: --12, hello, 12a, 12.3, 12.3.4, 12,3,4,
+	- ~~se argc == 1, sair do programa~~
+	- ~~se argc == 2, continuar~~
+		- ~~se argv[1][0] == NULL, sair do programa~~
+		- ~~se argv[1][0] != NULL, continuar~~
+		- ~~separar numeros de argv[1] para colocar na stack **a** (use ft_split)~~
+			- ~~*Você pode adicionar em malloc do array mais 2 espaços: para NULL~~\
+			~~e para o argv[0] que é o nome do programa.* (Mais facil para inicializar a stack)~~
+	- ~~se argc > 2, continuar~~
+	- ~~se argvs não forem numeros, sair do programa com *Error*~~
+		- ~~ex: --12, hello, 12a, 12.3, 12.3.4, 12,3,4,~~
 	- Converter os num em inteiros
 		- use ft_atol (long int)
 		- prototype: long int ft_atol(const char *str);
 	- verificar se num esta dentro do limite de inteiros
-		- se num > INT_MAX, sair do programa com *Error*
-		- se num < INT_MIN, sair do programa com *Error*
+		- se num > INT_MAX (2147483647), sair do programa com *Error*
+		- se num < INT_MIN (-2147483648), sair do programa com *Error*
 	- verificar se num é duplicado, se duplicado, sair do programa com *Error*
 	- se tudo ok, adicionar num na stack **a**
 		- Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)

@@ -5,47 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/05 16:37:13 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/10/05 20:42:29 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/10/05 21:47:16 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	validate_arguments(char *argv[])
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv && argv[i])
-	{
-		j = 0;
-		if (argv[i][j] == '-' || argv[i][j] == '+')
-			j++;
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-void	err_case(void)
+void	err_case(int argc, char **argv)
 {
 	ft_printf("Error\n");
+	free_arr(argc, argv);
 	exit(1);
 }
 
-void	check_args(int argc, char *argv[])
+void	free_arr(int argc, char **argv)
 {
-	if (argc == 1 || !argv[1][0])
-		exit(1);
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (validate_arguments(argv))
-		err_case();
+	int	i;
+
+	i = 0;
+	if (argc > 2)
+		return ;
+	while (argv && argv[i])
+		free(argv[i++]);
+	free(argv);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] != '\0' && s2[i] != '\0') && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
