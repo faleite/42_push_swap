@@ -5,18 +5,21 @@
 # .SILENT:
 NAME		= push_swap
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
-SRC_DIR		= src
-FILES 		= $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
-OBJS		= $(FILES:.c=.o)
+CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=address
+SRC_DIR		= ./src
+OBJ_DIR		= obj
+FILES 		= check_args.c free_error.c utils.c main.c
+SRCS		= $(addprefix $(SRC_DIR)/,$(FILES))
+OBJS		= $(addprefix $(OBJ_DIR)/,$(FILES:.c=.o))
 PRINTF		= ./ft_printf/libftprintf.a
 RM			= rm -f
 
 # .c.o:
-#	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
+#  	$(CC) -c $< -o $@
 
-.c.o:
-	$(CC) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 ################################################################################
 #                                 COLORS                                       #
@@ -37,27 +40,27 @@ PURPLE 		= \033[0;35m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-
+		@echo "$(GREEN)Compiling of $(RED)ft_printf...$(CLR_RESET)"
 		@make -C ft_printf
 #		clear
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
 		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $(NAME)
+#		clear
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
 		@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 clean:
-		$(RM) $(OBJS)
+		$(RM) -r $(OBJ_DIR)
 		@make clean -C ft_printf
 #		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 
 fclean: clean
 		$(RM) $(NAME)
-		$(RM) $(PRINTF)
-		clear
 		@echo "$(RED)$(NAME) $(GREEN)has been deleted.$(CLR_RESET)\n"
+		$(RM) $(PRINTF)
 		@echo "$(RED)printf $(GREEN)has been deleted.$(CLR_RESET)\n"
-		@echo "$(RED)libft $(GREEN)has been deleted.$(CLR_RESET)\n"
+#		clear
 
 re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)\n"

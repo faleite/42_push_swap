@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/05 21:47:58 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:10:36 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 void	check_args(int argc, char **argv)
 {
-	if (argc == 1 || !argv[1][0])
+	if (argc == 1)
 		exit(1);
+	null_args(argv);
 	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (validate_arguments(argc, argv))
-		err_case(argc, argv);
-	if (check_double(argv))
-		err_case(argc, argv);
-	if (check_len(argv))
-		err_case(argc, argv);
+		argv = ft_split(argv[1]);
+	validate_arguments(argc, argv);
+	check_double(argc, argv);
+	check_len(argc, argv);
+	check_int_max(argc, argv);
 	free_arr(argc, argv);
 }
 
-int	validate_arguments(int argc, char **argv)
+void	validate_arguments(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	if (argc > 2)
-		i = 1;
+	i = 1;
+	if (argc == 2)
+		i = 0;
 	while (argv && argv[i])
 	{
 		j = 0;
@@ -43,15 +42,14 @@ int	validate_arguments(int argc, char **argv)
 		while (argv[i][j])
 		{
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-				return (1);
+				err_case(argc, argv);
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
 
-int	check_double(char **argv)
+void	check_double(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -63,29 +61,43 @@ int	check_double(char **argv)
 		while (argv[j])
 		{
 			if (!ft_strcmp(argv[i], argv[j]))
-				return (1);
+				err_case(argc, argv);
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
 
-int	check_len(char **argv)
+void	check_len(int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
 	while (argv && argv[i])
 	{
-		if (ft_strlen(argv[i]) > 11 && argv[i][0] == '-' || argv[i][0] == '+')
-			return (1);
+		if (ft_strlen(argv[i]) > 11 && (argv[i][0] == '-' || argv[i][0] == '+'))
+			err_case(argc, argv);
 		if (argv[i][0] >= '0' && argv[i][0] <= '9')
 		{
 			if (ft_strlen(argv[i]) > 10)
-				return (1);
+				err_case(argc, argv);
 		}
 		i++;
 	}
-	return (0);
+}
+
+void	null_args(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv && argv[i])
+	{
+		if (!argv[i][0])
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		i++;
+	}
 }
