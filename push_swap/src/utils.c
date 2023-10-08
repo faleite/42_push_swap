@@ -6,13 +6,13 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:42:29 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/08 16:22:15 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/08 19:04:30 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-#define WD_NUM 2000
+#define WD_NUM 10100
 #define WD_LEN 13
 
 int	ft_strcmp(char *s1, char *s2)
