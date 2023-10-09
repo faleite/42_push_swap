@@ -118,3 +118,80 @@ Stack A | Stack B
 **4** 	|**10**
 **5**   |**6**
 **Stack A**|**Stack B**
+---
+- Repetindo o processo, agora o vencedor é o **6** e seu melhor amigo é o **7**.
+
+Stack A | Stack B
+:------:|:------:
+**6**	|
+**7**	|
+**21** 	|
+**52** 	|
+**1** 	|**2**
+**4** 	|**3**
+**5**   |**10**
+**Stack A**|**Stack B**
+---
+- Repetindo o processo, agora o vencedor é o **2** e seu melhor amigo é o **3**.
+
+Stack A | Stack B
+:------:|:------:
+**2**	|
+**4** 	|
+**5**   |
+**6**	|
+**7**	|
+**21** 	|
+**52** 	|**3**
+**1** 	|**10**
+**Stack A**|**Stack B**
+---
+- Repetindo o processo, agora o vencedor é o **3** e seu melhor amigo é o **4**.
+
+Stack A | Stack B
+:------:|:------:
+**3**	|
+**4** 	|
+**5**   |**10**
+**6**	|
+**7**	|
+**21** 	|
+**52** 	|
+**1** 	|
+**2**	|
+**Stack A**|**Stack B**
+---
+- Repetindo o processo, agora o vencedor é o **10** e seu melhor amigo é o **21**.
+
+Stack A | Stack B
+:------:|:------:
+**10**	|
+**21** 	|
+**52** 	|
+**1** 	|
+**2**	|
+**3**	|
+**4** 	|
+**5**   |
+**6**	|
+**7**	|
+**Stack A**|**Stack B**
+- Este procedimento termina quando não há mais elementos na stack **B**.
+---
+- Por último, basta girar a stack **A** até que o último elemento seja o maior da stack.
+
+Stack A | Stack B
+:------:|:------:
+**1** 	|
+**2**	|
+**3**	|
+**4** 	|
+**5**   |
+**6**	|
+**7**	|
+**10**	|
+**21** 	|
+**52** 	|
+**Stack A**|**Stack B**
+- Através deste algoritmo é possível organizar pilhas de qualquer tamanho,\
+o método é sempre o mesmo.

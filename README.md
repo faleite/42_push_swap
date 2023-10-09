@@ -18,7 +18,8 @@ choose the most appropriate solution(s) for optimized data sorting.*
 [**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed :atom:**
 
 ## Notes
-## [Mapa organizacional](./dcs/mapa_org.md)
+## [Algorithm](./dcs/algorithm.md)
+## [Workflow](./dcs/mapa_org.md)
 ## [Linked list](./dcs/linked_list.md)
 ## [Memory Process](./dcs/memory_process.png)
 ## Articles
