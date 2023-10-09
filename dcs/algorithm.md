@@ -1,4 +1,4 @@
-# The Algorithm
+# Algoritimo
 *Esta explicação é feita para um exemplo de 10 elementos, porém, para organizar\
 uma quantidade maior de números o procedimento é exatamente o mesmo,\
 sem nenhuma alteração.*

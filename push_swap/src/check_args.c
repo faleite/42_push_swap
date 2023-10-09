@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/08 17:10:36 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:45:49 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	check_args(int argc, char **argv)
 	check_double(argc, argv);
 	check_len(argc, argv);
 	check_int_max(argc, argv);
+	add_data(argc, argv);
 	free_arr(argc, argv);
 }
 

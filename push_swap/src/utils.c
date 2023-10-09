@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:42:29 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/08 19:04:30 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:25:27 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ long int	ft_atol(const char *str)
 			sig = -1;
 		i++;
 	}
-	if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
-		return (0);
 	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 	{
 		res *= 10;

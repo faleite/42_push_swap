@@ -8,7 +8,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=address
 SRC_DIR		= ./src
 OBJ_DIR		= obj
-FILES 		= check_args.c free_error.c utils.c main.c
+FILES 		= check_args.c tools.c utils.c main.c s_utils.c stack_a.c
 SRCS		= $(addprefix $(SRC_DIR)/,$(FILES))
 OBJS		= $(addprefix $(OBJ_DIR)/,$(FILES:.c=.o))
 PRINTF		= ./ft_printf/libftprintf.a
