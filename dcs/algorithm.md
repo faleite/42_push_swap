@@ -4,8 +4,9 @@ uma quantidade maior de números o procedimento é exatamente o mesmo,\
 sem nenhuma alteração.*
 
 ## Ínicio
-1. Encontre o valor médio. A princípio é 11.1, neste exemplo.
-2. Se o número estiver abaixo do valor médio, **push b (pb)**.
+- Encontre o valor médio. A princípio é 11.1, neste exemplo.
+- Se o número estiver abaixo do valor médio, **push b (pb)**.
+- Se o número estiver acima do valor médio, gire a **stack A (ra)**
 
 Stack A | Stack B
 :------:|:------:
@@ -105,7 +106,7 @@ Stack A | Stack B
 **5**   |**6**
 **Stack A**|**Stack B**
 
----------------------------->|
+<-------------------------
 :--:|
 **pa**
 
@@ -132,7 +133,7 @@ Stack A | Stack B
 **5**   |**10**
 **Stack A**|**Stack B**
 ---
-- Repetindo o processo, agora o vencedor é o **2** e seu melhor amigo é o **3**.
+- Repetindo o processo, agora o vencedor é o **2** e seu melhor amigo é o **4**.
 
 Stack A | Stack B
 :------:|:------:
@@ -152,13 +153,13 @@ Stack A | Stack B
 :------:|:------:
 **3**	|
 **4** 	|
-**5**   |**10**
+**5**   |
 **6**	|
 **7**	|
 **21** 	|
 **52** 	|
 **1** 	|
-**2**	|
+**2**	|**10**
 **Stack A**|**Stack B**
 ---
 - Repetindo o processo, agora o vencedor é o **10** e seu melhor amigo é o **21**.
