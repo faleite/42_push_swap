@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/09 21:44:15 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:04:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_stack
 {
 	int				a;
-	int				b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -50,9 +49,9 @@ void		null_args(char **argv);
 
 /* stack utils */
 void		insert_end(t_stack **root, int value);
-void		add_data(t_stack **a, int argc, char **argv);
 void		print_data(t_stack *node);
+void		free_stack(t_stack **root);
+t_stack		*add_data(int argc, char **argv);
 //t_data		*data(void);
-
 
 #endif /* PUSH_SWAP_H */

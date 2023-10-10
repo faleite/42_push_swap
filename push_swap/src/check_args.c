@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/09 21:45:49 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/10 20:01:32 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 
 void	check_args(int argc, char **argv)
 {
-	if (argc == 1)
-		exit(1);
-	null_args(argv);
-	if (argc == 2)
-		argv = ft_split(argv[1]);
 	validate_arguments(argc, argv);
 	check_double(argc, argv);
 	check_len(argc, argv);
 	check_int_max(argc, argv);
-	add_data(argc, argv);
-	free_arr(argc, argv);
 }
 
 void	validate_arguments(int argc, char **argv)
@@ -94,7 +87,7 @@ void	null_args(char **argv)
 	i = 0;
 	while (argv && argv[i])
 	{
-		if (!argv[i][0])
+		if (argv[i][0] <= 32)
 		{
 			ft_printf("Error\n");
 			exit(1);

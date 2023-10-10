@@ -18,20 +18,20 @@
 		- ~~se num > INT_MAX (2147483647), sair do programa com *Error*~~
 		- ~~se num < INT_MIN (-2147483648), sair do programa com *Error*~~
 	- ~~verificar se num é duplicado, se duplicado, sair do programa com *Error*~~
-	- se tudo ok, adicionar num na stack **a**
+	- ~~se tudo ok, adicionar num na stack **a**~~
 		- Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)
-2. Criar uma struct de stack
-	- Ex declaração: t_stack_node
-	- criar stack **a** e **b** -> t_stack_node *a, t_stack_node *b;
-	- atribuir NULL para os ponteiros *a e *b, para evitar lixo de memória
-3. criar função que inicializa a stack
+2. ~~Criar uma struct de stack~~
+	- ~~Ex declaração: t_stack_node~~
+	- ~~criar stack **a** e **b** -> t_stack_node *a, t_stack_node *b;~~
+	- ~~atribuir NULL para os ponteiros *a e *b, para evitar lixo de memória~~
+3. ~~criar função que inicializa a stack~~
 4. Funcões uteis para manipular a stack
 	- encontrar o ultimo node da stack
 	- encontrar o menor valor node da stack
 	- encontrar o maior valor node da stack
 	- adicionar node na stack (onde? no inicio ou no final?)
 	- retornar o tamanho da stack
-	- criar função que libera a stack (free)
+	- ~~criar função que libera a stack (free)~~
 ### Parte #2
 1. Implementações de comandos para a stack
 	- Swap (Trocar os dois primeiros elementos do topo da stack)

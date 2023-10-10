@@ -6,20 +6,17 @@
 NAME		= push_swap
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=address
-SRC_DIR		= ./src
-OBJ_DIR		= obj
-FILES 		= check_args.c tools.c utils.c main.c s_utils.c stack_a.c
-SRCS		= $(addprefix $(SRC_DIR)/,$(FILES))
-OBJS		= $(addprefix $(OBJ_DIR)/,$(FILES:.c=.o))
 PRINTF		= ./ft_printf/libftprintf.a
 RM			= rm -f
+FILES 		= ./src/check_args.c \
+									./src/tools.c \
+									./src/utils.c \
+									./src/main.c \
+									./src/s_tools.c
+OBJS		= $(FILES:.c=.o)
 
 # .c.o:
 #  	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
 
 ################################################################################
 #                                 COLORS                                       #
@@ -50,7 +47,7 @@ $(NAME): $(OBJS)
 		@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 clean:
-		$(RM) -r $(OBJ_DIR)
+		$(RM) $(OBJS)
 		@make clean -C ft_printf
 #		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
