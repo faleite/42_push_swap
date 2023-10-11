@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_a.c                                          :+:      :+:    :+:   */
+/*   s_tools.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/10 19:34:33 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:03:42 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ t_stack	*add_data(int argc, char **argv)
 	return (node);
 }
 
-void	print_data(t_stack *node)
+void	len_sum(t_stack *root)
 {
 	t_stack	*curr;
 
-	curr = node;
+	curr = root;
 	while (curr != NULL)
 	{
-		ft_printf("%d\n", curr->a);
+		data()->s_len++;
+		data()->s_sum += curr->x;
 		curr = curr->next;
 	}
 }
@@ -50,7 +51,7 @@ void	insert_end(t_stack **root, int value)
 	if (!new_node)
 		exit(1);
 	new_node->next = NULL;
-	new_node->a = value;
+	new_node->x = value;
 	if (!*root)
 	{
 		*root = new_node;
@@ -62,17 +63,36 @@ void	insert_end(t_stack **root, int value)
 	curr->next = new_node;
 }
 
-void	free_stack(t_stack **root)
+void	insert_begin(t_stack **root, int value)
 {
-	t_stack	*curr;
-	t_stack	*aux;
+	t_stack	*new_node;
+	
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		exit(1);
+	new_node->x = value;
+	new_node->next = *root;
+	*root = new_node; 
+}
 
+/* Remove an element of the stack (except the first element) */
+void	remove_element(t_stack **root, int value)
+{
+	t_stack *to_remove;
+	t_stack *curr;
+	
+	if (!*root)
+		return ;
 	curr = *root;
-	while (curr)
+	while (curr && curr->next)
 	{
-		aux = curr;
+		if (curr->next->x == value)
+		{
+			to_remove = curr->next;
+			curr->next = curr->next->next;
+			free(to_remove);
+			return ;
+		}
 		curr = curr->next;
-		free(aux);
 	}
-	*root = NULL;
 }

@@ -9,10 +9,13 @@ CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=address
 PRINTF		= ./ft_printf/libftprintf.a
 RM			= rm -f
 FILES 		= ./src/check_args.c \
-									./src/tools.c \
-									./src/utils.c \
-									./src/main.c \
-									./src/s_tools.c
+			  ./src/tools.c \
+			  ./src/utils.c \
+			  ./src/main.c \
+			  ./src/s_tools.c\
+			  ./actions/swap.c \
+			  ./actions/rotate.c \
+			  ./actions/rrotate.c
 OBJS		= $(FILES:.c=.o)
 
 # .c.o:

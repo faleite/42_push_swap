@@ -26,17 +26,18 @@
 	- ~~atribuir NULL para os ponteiros *a e *b, para evitar lixo de memória~~
 3. ~~criar função que inicializa a stack~~
 4. Funcões uteis para manipular a stack
+	- ~~retornar o tamanho da stack~~
+	- ~~Somar cada valor na stack e retornar seu total~~
 	- encontrar o ultimo node da stack
 	- encontrar o menor valor node da stack
 	- encontrar o maior valor node da stack
 	- adicionar node na stack (onde? no inicio ou no final?)
-	- retornar o tamanho da stack
 	- ~~criar função que libera a stack (free)~~
 ### Parte #2
 1. Implementações de comandos para a stack
-	- Swap (Trocar os dois primeiros elementos do topo da stack)
-	- Rotate (O node do topo da stack se torna o ultimo node da stack)
-		- Ex: 1 2 3 4 5 -> 2 3 4 5 1
+	- ~~Swap (Trocar os dois primeiros elementos do topo da stack)~~
+	- ~~Rotate (O node do topo da stack se torna o ultimo node da stack)~~
+		- ~~Ex: 1 2 3 4 5 -> 2 3 4 5 1~~
 	- Reverse Rotate (O ultimo node da stack se torna o node do topo da stack)
 		- Ex: 1 2 3 4 5 -> 5 1 2 3 4
 	- Push (Tira o node do topo da stack **a** e coloca no topo da stack **b**)
