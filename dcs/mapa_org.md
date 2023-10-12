@@ -38,9 +38,9 @@
 	- ~~Swap (Trocar os dois primeiros elementos do topo da stack)~~
 	- ~~Rotate (O node do topo da stack se torna o ultimo node da stack)~~
 		- ~~Ex: 1 2 3 4 5 -> 2 3 4 5 1~~
-	- Reverse Rotate (O ultimo node da stack se torna o node do topo da stack)
-		- Ex: 1 2 3 4 5 -> 5 1 2 3 4
-	- Push (Tira o node do topo da stack **a** e coloca no topo da stack **b**)
+	- ~~Reverse Rotate (O ultimo node da stack se torna o node do topo da stack)~~
+		- ~~Ex: 1 2 3 4 5 -> 5 1 2 3 4~~
+	- ~~Push (Tira o node do topo da stack **a** e coloca no topo da stack **b**)~~
 ### Parte #3
 1. Ordenação de poucos numeros
 	- se tamanho da stack == 3 (apenas 3 nodes), função de ordenação especifica

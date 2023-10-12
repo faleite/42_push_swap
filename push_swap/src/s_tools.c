@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/11 20:03:42 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:37:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	insert_end(t_stack **root, int value)
 void	insert_begin(t_stack **root, int value)
 {
 	t_stack	*new_node;
-	
+
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		exit(1);
@@ -78,9 +78,9 @@ void	insert_begin(t_stack **root, int value)
 /* Remove an element of the stack (except the first element) */
 void	remove_element(t_stack **root, int value)
 {
-	t_stack *to_remove;
-	t_stack *curr;
-	
+	t_stack	*to_remove;
+	t_stack	*curr;
+
 	if (!*root)
 		return ;
 	curr = *root;

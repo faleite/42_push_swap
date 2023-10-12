@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/11 19:46:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:14:07 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ t_data		*data(void);
 void		swap(t_stack **node);
 void		rotate(t_stack **node);
 void		rrotate(t_stack **node);
+void		push(t_stack **src, t_stack **dst);
 
 #endif /* PUSH_SWAP_H */

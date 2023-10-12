@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:40:42 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/11 19:33:41 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:38:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_arr(int argc, char **argv)
 t_data	*data(void)
 {
 	static t_data	d;
+
 	return (&d);
 }
 

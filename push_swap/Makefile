@@ -15,7 +15,8 @@ FILES 		= ./src/check_args.c \
 			  ./src/s_tools.c\
 			  ./actions/swap.c \
 			  ./actions/rotate.c \
-			  ./actions/rrotate.c
+			  ./actions/rrotate.c \
+			  ./actions/push.c
 OBJS		= $(FILES:.c=.o)
 
 # .c.o:
@@ -68,6 +69,6 @@ re: fclean all
 
 
 v:
-	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap
+	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap "1 2 3 4 5"
 
 .PHONY: all clean fclean re
