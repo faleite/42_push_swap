@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:36:12 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 13:34:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 21:26:04 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ void	rotate(t_stack **node)
 		curr = curr->next;
 	curr->next = first;
 	first->next = NULL;
+}
+
+void	ra(t_stack **node)
+{
+	rotate(node);
+	data()->moves++;
+	write(2, "ra\n", 3);
 }
 
 /* Option use fct insert_end (note good)

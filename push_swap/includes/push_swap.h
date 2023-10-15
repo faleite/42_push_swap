@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 16:03:51 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:02:30 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_data
 {
 	int	s_len;
 	int	s_sum;
+	int	moves;
 }	t_data;
 
 /* Utils */
@@ -62,9 +63,13 @@ void		swap(t_stack **node);
 void		rotate(t_stack **node);
 void		rrotate(t_stack **node);
 void		push(t_stack **src, t_stack **dst);
+void		sa(t_stack **node);
+void		ra(t_stack **node);
+void		rra(t_stack **node);
 
 /* Sorting */
 int			sort_2(t_stack **a);
+int			sort_3(t_stack **a);
 void		sorting(t_stack **a, t_stack **b);
 
 #endif /* PUSH_SWAP_H */
