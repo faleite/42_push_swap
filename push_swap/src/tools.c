@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:40:42 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/12 20:38:59 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 14:51:25 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	err_case(int argc, char **argv)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 7);
 	free_arr(argc, argv);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:43:53 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/12 20:38:34 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:09:07 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	swap(t_stack **node)
 {
 	int	tmp;
 
-	if (!node || !(*node)->next)
+	if (!(*node) || !(*node)->next)
 		return ;
 	tmp = (*node)->x;
 	(*node)->x = (*node)->next->x;

@@ -19,7 +19,7 @@
 		- ~~se num < INT_MIN (-2147483648), sair do programa com *Error*~~
 	- ~~verificar se num é duplicado, se duplicado, sair do programa com *Error*~~
 	- ~~se tudo ok, adicionar num na stack **a**~~
-		- Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)
+		- ~~Watch this video: [What is a static variable](https://youtu.be/OngGUoENgWo?si=GoLx9Ng7P3Tny8Yk)~~
 2. ~~Criar uma struct de stack~~
 	- ~~Ex declaração: t_stack_node~~
 	- ~~criar stack **a** e **b** -> t_stack_node *a, t_stack_node *b;~~

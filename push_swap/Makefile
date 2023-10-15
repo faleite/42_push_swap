@@ -13,10 +13,12 @@ FILES 		= ./src/check_args.c \
 			  ./src/utils.c \
 			  ./src/main.c \
 			  ./src/s_tools.c\
+			  ./src/sorting.c\
 			  ./actions/swap.c \
 			  ./actions/rotate.c \
 			  ./actions/rrotate.c \
-			  ./actions/push.c
+			  ./actions/push.c \
+			  ./sorting/smaller_sorting.c
 OBJS		= $(FILES:.c=.o)
 
 # .c.o:
@@ -67,8 +69,7 @@ re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)\n"
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
 
-
 v:
-	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap "1 2 3 4 5"
+	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap "1 2 3 4""5"
 
 .PHONY: all clean fclean re

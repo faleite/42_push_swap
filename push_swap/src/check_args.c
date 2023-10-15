@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/10 20:01:32 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:29:47 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,22 @@ void	null_args(char **argv)
 	{
 		if (argv[i][0] <= 32)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 7);
 			exit(1);
 		}
 		i++;
+	}
+	if (argv[1])
+	{
+		i = 0;
+		while (argv[1][i])
+		{
+			if ((argv[1][i] <= 32 && argv[1][i + 1] <= 32))
+			{
+				write(2, "Error\n", 7);
+				exit(1);
+			}
+			i++;
+		}
 	}
 }

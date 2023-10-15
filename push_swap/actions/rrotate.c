@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:00:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/12 20:40:58 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/15 13:34:10 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rrotate(t_stack **node)
 	t_stack	*curr;
 	t_stack	*last;
 
-	if (!node || !(*node)->next)
+	if (!(*node) || !(*node)->next)
 		return ;
 	curr = *node;
 	while (curr->next->next)

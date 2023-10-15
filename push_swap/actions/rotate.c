@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faleite <faleite@student.42.fr>            +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:36:12 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/14 15:11:01 by faleite          ###   ########.fr       */
+/*   Updated: 2023/10/15 13:34:01 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate(t_stack **node)
 	t_stack	*first;
 	t_stack	*curr;
 
-	if (!node || !(*node)->next)
+	if (!(*node) || !(*node)->next)
 		return ;
 	first = *node;
 	*node = first->next;
