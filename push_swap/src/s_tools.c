@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_tools.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faleite <faleite@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/12 20:37:14 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:11:15 by faleite          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	insert_begin(t_stack **root, int value)
 		exit(1);
 	new_node->x = value;
 	new_node->next = *root;
-	*root = new_node; 
+	*root = new_node;
 }
 
 /* Remove an element of the stack (except the first element) */

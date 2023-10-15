@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faleite <faleite@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:36:12 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/12 21:25:22 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:11:01 by faleite          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rotate(t_stack **node)
 	while (curr->next)
 		curr = curr->next;
 	curr->next = first;
-	first->next = NULL; 
+	first->next = NULL;
 }
 
 /* Option use fct insert_end (note good)
