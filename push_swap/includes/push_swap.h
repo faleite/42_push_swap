@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 20:02:30 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/16 21:33:37 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,16 @@ void		push(t_stack **src, t_stack **dst);
 void		sa(t_stack **node);
 void		ra(t_stack **node);
 void		rra(t_stack **node);
+void		pa(t_stack **b, t_stack **a);
+void		pb(t_stack **a, t_stack **b);
 
 /* Sorting */
 int			sort_2(t_stack **a);
 int			sort_3(t_stack **a);
+int			sort_4(t_stack **a, t_stack **b);
+int			sort_5(t_stack **a, t_stack **b);
+void		pos_3(t_stack **a, t_stack **b);
+void		pos_4(t_stack **a, t_stack **b);
 void		sorting(t_stack **a, t_stack **b);
 
 #endif /* PUSH_SWAP_H */

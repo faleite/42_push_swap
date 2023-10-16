@@ -42,14 +42,15 @@
 		- ~~Ex: 1 2 3 4 5 -> 5 1 2 3 4~~
 	- ~~Push (Tira o node do topo da stack **a** e coloca no topo da stack **b**)~~
 ### Parte #3
-1. Ordenação de poucos numeros
-	- se tamanho da stack == 3 (apenas 3 nodes), função de ordenação especifica
-		- Se o primeiro node é o maior, envie-o para o final da stack (ra)
-		- Se eu sei que o maior numero esta no final da stack:
-			- Eu verifico se o segundo node é o menor, se for, eu faço swap (sa)
-	- se tamanho da stack == 1, fazer nada
-	- se tamanho da stack == 2, fazer swap (sa)
-	- se tamanho da stack == 5, fazer ordenação especifica
+1. ~~Ordenação de poucos numeros, 2, 3, 4 e 5~~
+	- ~~se tamanho da stack == 3 (apenas 3 nodes), função de ordenação especifica~~
+		- ~~Se o primeiro node é o maior, envie-o para o final da stack (ra)~~
+		- ~~Se eu sei que o maior numero esta no final da stack:~~
+			- ~~Eu verifico se o segundo node é o menor, se for, eu faço swap (sa)~~
+	- ~~se tamanho da stack == 1, fazer nada~~
+	- ~~se tamanho da stack == 2, fazer swap (sa)~~
+	- ~~se tamanho da stack == 5, fazer ordenação especifica~~
+2. Criar função para verificar se os numeros da linha de argumento esta ordenada 
 ### Parte #4
 1. Ordenação de muitos numeros... (em progresso)
 	- se tamanho da stack > 5, fazer ordenação especifica
