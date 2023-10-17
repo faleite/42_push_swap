@@ -50,7 +50,7 @@
 	- ~~se tamanho da stack == 1, fazer nada~~
 	- ~~se tamanho da stack == 2, fazer swap (sa)~~
 	- ~~se tamanho da stack == 5, fazer ordenação especifica~~
-2. Criar função para verificar se os numeros da linha de argumento esta ordenada 
+2. ~~Criar função para verificar se os numeros da linha de argumento esta ordenada ~~
 ### Parte #4
 1. Ordenação de muitos numeros... (em progresso)
 	- se tamanho da stack > 5, fazer ordenação especifica
@@ -59,3 +59,6 @@
 		- ordenar a stack **b** com a função de ordenação especifica
 		- juntar as duas stacks **a** e **b** em uma stack **a**
 		- ordenar a stack **a** com a função de ordenação especifica
+2. Pseudo código
+	1. Enquanto tamanho da stack **a** for maior que **5**
+		- faça:

@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   bigger_sorting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:58:44 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/17 21:04:27 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/10/17 18:58:59 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/10/17 21:41:25 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sorting(t_stack **a, t_stack **b)
+int	sort_bigger(t_stack **a, t_stack **b)
 {
-	t_stack	*curr;
-	int		len;
-
-	curr = *a;
-	len = 0;
-	while (curr != NULL && ++len)
-		curr = curr->next;
-	if (len == 1)
-		return ;
-	else if (len == 2)
-		sort_2(a);
-	else if (len == 3)
-		sort_3(a);
-	else if (len == 4)
-		sort_4(a, b);
-	else if (len == 5)
-		sort_5(a, b);
-	else if (len > 5)
-		sort_bigger(a, b);
-}
-
-int	sort_2(t_stack **a)
-{
-	if ((*a)->x > (*a)->next->x)
+	len_sum((*a));
+	while (data()->s_len > 5)
 	{
-		swap(a);
-		write(2, "sa\n", 3);
-		data()->moves++;
+		data()->s_len = 0;
+		data()->s_sum = 0;
+		if ((*a)->x < data()->mean)
+			pb(a, b);
+		else
+			ra(a);
+		len_sum((*a));
 	}
+	sort_5(a, b);
 	return (data()->moves);
 }
+
+/*
+ft_printf("Soma: %d\n", data()->s_sum);
+ft_printf("Tamanho: %d\n", data()->s_len);
+ft_printf("Média: %d\n", data()->mean);
+*/

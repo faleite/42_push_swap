@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_tools.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faleite <faleite@student.42.fr>            +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/14 15:11:15 by faleite          ###   ########.fr       */
+/*   Updated: 2023/10/17 20:53:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,28 @@ void	len_sum(t_stack *root)
 		data()->s_sum += curr->x;
 		curr = curr->next;
 	}
+	data()->mean = data()->s_sum / data()->s_len;
+}
+
+void	check_sorting(t_stack **a, int argc, char **argv)
+{
+	t_stack	*curr;
+	int		check;
+
+	curr = *a;
+	check = 0;
+	while (curr->next)
+	{
+		if ((curr->x) > (curr->next->x))
+			check++;
+		curr = curr->next;
+	}
+	if (!check)
+	{
+		free_arr(argc, argv);
+		free_stack(a);
+		exit(1);
+	}
 }
 
 void	insert_end(t_stack **root, int value)
@@ -63,36 +85,36 @@ void	insert_end(t_stack **root, int value)
 	curr->next = new_node;
 }
 
-void	insert_begin(t_stack **root, int value)
-{
-	t_stack	*new_node;
+// void	insert_begin(t_stack **root, int value)
+// {
+// 	t_stack	*new_node;
 
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		exit(1);
-	new_node->x = value;
-	new_node->next = *root;
-	*root = new_node;
-}
+// 	new_node = malloc(sizeof(t_stack));
+// 	if (!new_node)
+// 		exit(1);
+// 	new_node->x = value;
+// 	new_node->next = *root;
+// 	*root = new_node;
+// }
 
-/* Remove an element of the stack (except the first element) */
-void	remove_element(t_stack **root, int value)
-{
-	t_stack	*to_remove;
-	t_stack	*curr;
+// /* Remove an element of the stack (except the first element) */
+// void	remove_element(t_stack **root, int value)
+// {
+// 	t_stack	*to_remove;
+// 	t_stack	*curr;
 
-	if (!*root)
-		return ;
-	curr = *root;
-	while (curr && curr->next)
-	{
-		if (curr->next->x == value)
-		{
-			to_remove = curr->next;
-			curr->next = curr->next->next;
-			free(to_remove);
-			return ;
-		}
-		curr = curr->next;
-	}
-}
+// 	if (!*root)
+// 		return ;
+// 	curr = *root;
+// 	while (curr && curr->next)
+// 	{
+// 		if (curr->next->x == value)
+// 		{
+// 			to_remove = curr->next;
+// 			curr->next = curr->next->next;
+// 			free(to_remove);
+// 			return ;
+// 		}
+// 		curr = curr->next;
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 18:04:46 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/16 19:05:32 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/17 20:42:18 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char *argv[])
 		argv = ft_split(argv[1]);
 	check_args(argc, argv);
 	a = add_data(argc, argv);
+	check_sorting(&a, argc, argv);
 	sorting(&a, &b);
 	the_end(argc, argv, a, b);
 	return (0);

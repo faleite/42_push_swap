@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:33:37 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:04:01 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_data
 {
 	int	s_len;
 	int	s_sum;
+	int	mean;
 	int	moves;
 }	t_data;
 
@@ -49,12 +50,13 @@ void		free_arr(int argc, char **argv);
 void		null_args(char **argv);
 
 /* stack utils */
+// void		insert_begin(t_stack **root, int value);
+// void		remove_element(t_stack **root, int value);
 void		insert_end(t_stack **root, int value);
-void		insert_begin(t_stack **root, int value);
-void		remove_element(t_stack **root, int value);
 void		print_data(t_stack *node);
 void		free_stack(t_stack **root);
 void		len_sum(t_stack *root);
+void		check_sorting(t_stack **a, int argc, char **argv);
 t_stack		*add_data(int argc, char **argv);
 t_data		*data(void);
 
@@ -74,6 +76,7 @@ int			sort_2(t_stack **a);
 int			sort_3(t_stack **a);
 int			sort_4(t_stack **a, t_stack **b);
 int			sort_5(t_stack **a, t_stack **b);
+int			sort_bigger(t_stack **a, t_stack **b);
 void		pos_3(t_stack **a, t_stack **b);
 void		pos_4(t_stack **a, t_stack **b);
 void		sorting(t_stack **a, t_stack **b);
