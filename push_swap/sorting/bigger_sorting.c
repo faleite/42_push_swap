@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:59 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/17 21:41:25 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:44:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	sort_bigger(t_stack **a, t_stack **b)
 	{
 		data()->s_len = 0;
 		data()->s_sum = 0;
-		if ((*a)->x < data()->mean)
+		if ((*a)->nbr < data()->mean)
 			pb(a, b);
 		else
 			ra(a);

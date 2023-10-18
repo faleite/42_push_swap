@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:43:53 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 19:53:51 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:29:17 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	swap(t_stack **node)
 
 	if (!(*node) || !(*node)->next)
 		return ;
-	tmp = (*node)->x;
-	(*node)->x = (*node)->next->x;
-	(*node)->next->x = tmp;
+	tmp = (*node)->nbr;
+	(*node)->nbr = (*node)->next->nbr;
+	(*node)->next->nbr = tmp;
 }
 
 void	sa(t_stack **node)

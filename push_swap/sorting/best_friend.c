@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   best_friend.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:57:27 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 17:55:12 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/10/18 16:43:37 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/10/18 21:46:04 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(t_stack **src, t_stack **dst)
+int	best_friend(t_stack *a, int nbr_b)
 {
-	t_stack	*head;
+	int	friend;
+	int	best;
+	int	temp;
 
-	if (!(*src))
-		return ;
-	head = *src;
-	*src = (*src)->next;
-	head->next = *dst;
-	*dst = head;
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	data()->moves++;
-	write(2, "pb\n", 3);
-}
-
-void	pa(t_stack **b, t_stack **a)
-{
-	push(b, a);
-	data()->moves++;
-	write(2, "pa\n", 3);
+	friend = INT_MAX;
+	best = INT_MAX;
+	while (a)
+	{
+		temp = a->nbr - nbr_b;
+		if (temp < friend && a->nbr > nbr_b)
+		{
+			friend = temp;
+			best = a->nbr;
+		}
+		a = a->next;
+	}
+	if (best == INT_MAX)
+		return (-1);
+	return (best);
 }

@@ -80,7 +80,7 @@ Melhor amigo é **21** | Melhor amigo é **4**| Melhor amigo é **4**
 
 - Repetindo o processo obtemos os melhores amigos do resto dos números:
 	- O melhor amigo de **10** é **21**  
-	- O melhor amigo de **6** é **5**
+	- O melhor amigo de **6** é **21**
 - Regras para escolher o melhor amigo:
 	1. O número em **A** deve ser maior que o número em **B**
 
@@ -90,7 +90,7 @@ Melhor amigo | Número | Movimentos para colocar o melhor amigo no topo | Movime
 4  |2  |1  |1  |2
 4  |3  |1  |2  |3
 21 |10 |2  |2  |5
-5  |6  |2  |1  |3
+21 |6  |2  |1  |3
 
 - O vencedor foi **7**, porque todos os custos foram maiores ou iguais. Portanto, o vencedor\
 e o melhor amigo serão colocados no topo das suas pilhas.

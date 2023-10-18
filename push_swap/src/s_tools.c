@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/17 20:53:44 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:31:03 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	len_sum(t_stack *root)
 	while (curr != NULL)
 	{
 		data()->s_len++;
-		data()->s_sum += curr->x;
+		data()->s_sum += curr->nbr;
 		curr = curr->next;
 	}
 	data()->mean = data()->s_sum / data()->s_len;
@@ -52,7 +52,7 @@ void	check_sorting(t_stack **a, int argc, char **argv)
 	check = 0;
 	while (curr->next)
 	{
-		if ((curr->x) > (curr->next->x))
+		if ((curr->nbr) > (curr->next->nbr))
 			check++;
 		curr = curr->next;
 	}
@@ -73,7 +73,7 @@ void	insert_end(t_stack **root, int value)
 	if (!new_node)
 		exit(1);
 	new_node->next = NULL;
-	new_node->x = value;
+	new_node->nbr = value;
 	if (!*root)
 	{
 		*root = new_node;
@@ -92,7 +92,7 @@ void	insert_end(t_stack **root, int value)
 // 	new_node = malloc(sizeof(t_stack));
 // 	if (!new_node)
 // 		exit(1);
-// 	new_node->x = value;
+// 	new_node->nbr = value;
 // 	new_node->next = *root;
 // 	*root = new_node;
 // }
@@ -108,7 +108,7 @@ void	insert_end(t_stack **root, int value)
 // 	curr = *root;
 // 	while (curr && curr->next)
 // 	{
-// 		if (curr->next->x == value)
+// 		if (curr->next->nbr == value)
 // 		{
 // 			to_remove = curr->next;
 // 			curr->next = curr->next->next;

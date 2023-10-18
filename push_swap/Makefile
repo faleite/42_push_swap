@@ -19,7 +19,8 @@ FILES 		= ./src/check_args.c \
 			  ./actions/rrotate.c \
 			  ./actions/push.c \
 			  ./sorting/smaller_sorting.c \
-			  ./sorting/bigger_sorting.c
+			  ./sorting/bigger_sorting.c \
+			  ./sorting/best_friend.c
 OBJS		= $(FILES:.c=.o)
 
 # .c.o:

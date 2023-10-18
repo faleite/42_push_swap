@@ -6,22 +6,26 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/17 21:04:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:21:16 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 # include "../ft_printf/ft_printf.h"
 # include "stdlib.h" // malloc, free, exit
 # include "unistd.h" // write, read, close
-# include "limits.h" // INT_MAX, INT_MIN
 # include "stdio.h" // perror, printf
 
 typedef struct s_stack
 {
-	int				x;
+	int				nbr;
+	int				cost;
+	int				best;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -80,5 +84,6 @@ int			sort_bigger(t_stack **a, t_stack **b);
 void		pos_3(t_stack **a, t_stack **b);
 void		pos_4(t_stack **a, t_stack **b);
 void		sorting(t_stack **a, t_stack **b);
+int			best_friend(t_stack *a, int xofb);
 
 #endif /* PUSH_SWAP_H */
