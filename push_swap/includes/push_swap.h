@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 21:21:16 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 22:34:25 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-# include "../ft_printf/ft_printf.h"
 # include "stdlib.h" // malloc, free, exit
 # include "unistd.h" // write, read, close
-# include "stdio.h" // perror, printf
+# include "stdio.h" // perror, printf  ***DELETAR**
 
 typedef struct s_stack
 {
 	int				nbr;
-	int				cost;
+	int				index;
 	int				best;
+	int				cost;
 	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_data
 {
-	int	s_len;
-	int	s_sum;
-	int	mean;
 	int	moves;
 }	t_data;
 
@@ -57,10 +54,10 @@ void		null_args(char **argv);
 // void		insert_begin(t_stack **root, int value);
 // void		remove_element(t_stack **root, int value);
 void		insert_end(t_stack **root, int value);
-void		print_data(t_stack *node);
 void		free_stack(t_stack **root);
-void		len_sum(t_stack *root);
 void		check_sorting(t_stack **a, int argc, char **argv);
+int			struct_len(t_stack *root);
+int			struct_sum(t_stack *root);
 t_stack		*add_data(int argc, char **argv);
 t_data		*data(void);
 
@@ -76,14 +73,18 @@ void		pa(t_stack **b, t_stack **a);
 void		pb(t_stack **a, t_stack **b);
 
 /* Sorting */
-int			sort_2(t_stack **a);
-int			sort_3(t_stack **a);
-int			sort_4(t_stack **a, t_stack **b);
-int			sort_5(t_stack **a, t_stack **b);
-int			sort_bigger(t_stack **a, t_stack **b);
+void		sort_2(t_stack **a);
+void		sort_3(t_stack **a);
+void		sort_4(t_stack **a, t_stack **b);
+void		sort_5(t_stack **a, t_stack **b);
+void		sort_bigger(t_stack **a, t_stack **b);
 void		pos_3(t_stack **a, t_stack **b);
 void		pos_4(t_stack **a, t_stack **b);
 void		sorting(t_stack **a, t_stack **b);
-int			best_friend(t_stack *a, int xofb);
+void		add_best_friend(t_stack *a, t_stack **b);
+void		add_index(t_stack **node);
+// void		add_cost(t_stack **node);
+int			get_moves(t_stack *node, int index);
+int			best_friend(t_stack *a, int nbr_b);
 
 #endif /* PUSH_SWAP_H */

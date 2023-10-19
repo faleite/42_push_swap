@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:40:42 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 21:17:46 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:30:13 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,6 @@ t_data	*data(void)
 	static t_data	d;
 
 	return (&d);
-}
-
-void	print_data(t_stack *node)
-{
-	t_stack	*curr;
-
-	curr = node;
-	ft_printf("Sorted: ");
-	while (curr != NULL)
-	{
-		ft_printf("%d ", curr->nbr);
-		curr = curr->next;
-	}
 }
 
 void	free_stack(t_stack **root)

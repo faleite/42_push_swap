@@ -6,7 +6,6 @@
 NAME		= push_swap
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=address
-PRINTF		= ./ft_printf/libftprintf.a
 RM			= rm -f
 FILES 		= ./src/check_args.c \
 			  ./src/tools.c \
@@ -45,26 +44,20 @@ PURPLE 		= \033[0;35m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@echo "$(GREEN)Compiling of $(RED)ft_printf...$(CLR_RESET)"
-		@make -C ft_printf
 #		clear
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
-		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $(NAME)
-#		clear
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
 		@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 clean:
 		$(RM) $(OBJS)
-		@make clean -C ft_printf
 #		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 
 fclean: clean
 		$(RM) $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)has been deleted.$(CLR_RESET)\n"
-		$(RM) $(PRINTF)
-		@echo "$(RED)printf $(GREEN)has been deleted.$(CLR_RESET)\n"
 #		clear
 
 re: fclean all

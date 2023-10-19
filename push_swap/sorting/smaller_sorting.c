@@ -6,13 +6,13 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:41:54 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 19:30:16 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:21:06 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sort_3(t_stack **a)
+void	sort_3(t_stack **a)
 {
 	if ((*a)->nbr > (*a)->next->nbr && \
 		(*a)->nbr > (*a)->next->next->nbr)
@@ -21,10 +21,9 @@ int	sort_3(t_stack **a)
 		rra(a);
 	if ((*a)->next->nbr < (*a)->nbr)
 		sa(a);
-	return (data()->moves);
 }
 
-int	sort_4(t_stack **a, t_stack **b)
+void	sort_4(t_stack **a, t_stack **b)
 {
 	pb(a, b);
 	sort_3(a);
@@ -38,10 +37,9 @@ int	sort_4(t_stack **a, t_stack **b)
 		sa(a);
 	if ((*a)->nbr > (*a)->next->next->nbr)
 		ra(a);
-	return (data()->moves);
 }
 
-int	sort_5(t_stack **a, t_stack **b)
+void	sort_5(t_stack **a, t_stack **b)
 {
 	pb(a, b);
 	sort_4(a, b);
@@ -64,7 +62,6 @@ int	sort_5(t_stack **a, t_stack **b)
 		pa(b, a);
 		ra(a);
 	}
-	return (data()->moves);
 }
 
 void	pos_3(t_stack **a, t_stack **b)

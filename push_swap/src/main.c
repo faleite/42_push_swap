@@ -6,23 +6,17 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 18:04:46 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 21:38:35 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 22:35:12 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	the_end(int argc, char **argv, t_stack *a, t_stack *b)
-{
-	print_data(a);
-	ft_printf("\n------\n");
-	print_data(b);
-	ft_printf("\n------\n");
-	ft_printf("Moves: %d\n", data()->moves);
-	free_arr(argc, argv);
-	free_stack(&a);
-	free_stack(&b);
-}
+void	print_nbr(t_stack *node);
+void	print_best(t_stack *node);
+void	print_index(t_stack *node);
+// void	print_cost(t_stack *node);
+void	the_end(int argc, char **argv, t_stack *a, t_stack *b);
 
 int	main(int argc, char *argv[])
 {
@@ -42,3 +36,78 @@ int	main(int argc, char *argv[])
 	the_end(argc, argv, a, b);
 	return (0);
 }
+
+/* DELETAR PRINTF */
+void	the_end(int argc, char **argv, t_stack *a, t_stack *b)
+{
+	print_nbr(a);
+	printf("\n------\n");
+	print_nbr(b);
+	printf("\n------\n");
+	print_best(b);
+	printf("\n------\n");
+	print_cost(a);
+	printf("\n------\n");
+	print_cost(b);
+	printf("\n------\n");
+	printf("Moves: %d\n", data()->moves);
+	free_arr(argc, argv);
+	free_stack(&a);
+	free_stack(&b);
+}
+
+/* DELETAR PRINTF */
+void	print_nbr(t_stack *node)
+{
+	t_stack	*curr;
+
+	curr = node;
+	printf("Sorted: ");
+	while (curr != NULL)
+	{
+		printf("%d ", curr->nbr);
+		curr = curr->next;
+	}
+}
+
+/* DELETAR PRINTF */
+void	print_best(t_stack *node)
+{
+	t_stack	*curr;
+
+	curr = node;
+	printf("Friend: ");
+	while (curr != NULL)
+	{
+		printf("%d ", curr->best);
+		curr = curr->next;
+	}
+}
+
+/* DELETAR PRINTF */
+void	print_index(t_stack *node)
+{
+	t_stack	*curr;
+
+	curr = node;
+	printf("Index: ");
+	while (curr != NULL)
+	{
+		printf("%d ", curr->index);
+		curr = curr->next;
+	}
+}
+
+/* DELETAR PRINTF */
+// void	print_cost(t_stack *node)
+// {
+// 	t_stack	*curr;
+
+// 	curr = node;
+// 	printf("Cost: ");
+// 	while (curr != NULL)
+// 	{
+// 		printf("%d ", curr->cost);
+// 		curr = curr->next;
+// 	}
+// }

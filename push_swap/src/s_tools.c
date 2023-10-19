@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 19:31:03 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:36:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,34 @@ t_stack	*add_data(int argc, char **argv)
 	return (node);
 }
 
-void	len_sum(t_stack *root)
+int	struct_len(t_stack *root)
 {
+	int		s_len;
 	t_stack	*curr;
 
+	s_len = 0;
 	curr = root;
 	while (curr != NULL)
 	{
-		data()->s_len++;
-		data()->s_sum += curr->nbr;
+		s_len++;
 		curr = curr->next;
 	}
-	data()->mean = data()->s_sum / data()->s_len;
+	return (s_len);
+}
+
+int	struct_sum(t_stack *root)
+{
+	int		s_sum;
+	t_stack	*curr;
+
+	s_sum = 0;
+	curr = root;
+	while (curr != NULL)
+	{
+		s_sum += curr->nbr;
+		curr = curr->next;
+	}
+	return (s_sum);
 }
 
 void	check_sorting(t_stack **a, int argc, char **argv)
