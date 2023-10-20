@@ -89,7 +89,7 @@ Melhor amigo | Número | Movimentos para colocar o melhor amigo no topo | Movime
 21 |7  |2  |0  |2
 4  |2  |1  |1  |2
 4  |3  |1  |2  |3
-21 |10 |2  |2  |5
+21 |10 |2  |2  |4
 21 |6  |2  |1  |3
 
 - O vencedor foi **7**, porque todos os custos foram maiores ou iguais. Portanto, o vencedor\
@@ -106,7 +106,7 @@ Stack A | Stack B
 **5**   |**6**
 **Stack A**|**Stack B**
 
-<-------------------------
+<------------------------- |
 :--:|
 **pa**
 

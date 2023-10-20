@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 22:34:25 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:32:11 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+// typedef struct s_best
+// {
+// 	int	index;
+// 	int	best;
+// 	int	cost;
+// }	t_best;
+
 typedef struct s_data
 {
+	int	rotation;
 	int	moves;
 }	t_data;
 
@@ -67,8 +75,10 @@ void		rotate(t_stack **node);
 void		rrotate(t_stack **node);
 void		push(t_stack **src, t_stack **dst);
 void		sa(t_stack **node);
-void		ra(t_stack **node);
-void		rra(t_stack **node);
+void		ra(t_stack **a);
+void		rra(t_stack **a);
+void		rb(t_stack **b);
+void		rrb(t_stack **b);
 void		pa(t_stack **b, t_stack **a);
 void		pb(t_stack **a, t_stack **b);
 
@@ -83,7 +93,8 @@ void		pos_4(t_stack **a, t_stack **b);
 void		sorting(t_stack **a, t_stack **b);
 void		add_best_friend(t_stack *a, t_stack **b);
 void		add_index(t_stack **node);
-// void		add_cost(t_stack **node);
+void		add_cost(t_stack **a, t_stack **b);
+void		moves_top(t_stack **a, t_stack **b);
 int			get_moves(t_stack *node, int index);
 int			best_friend(t_stack *a, int nbr_b);
 

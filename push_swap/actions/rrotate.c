@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:00:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 20:01:56 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:28:58 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,18 @@ void	rrotate(t_stack **node)
 	*node = last;
 }
 
-void	rra(t_stack **node)
+void	rra(t_stack **a)
 {
-	rrotate(node);
+	rrotate(a);
 	data()->moves++;
 	write(2, "rra\n", 4);
+}
+
+void	rrb(t_stack **b)
+{
+	rrotate(b);
+	data()->moves++;
+	write(2, "rrb\n", 4);
 }
 
 /* Option use fct insert_begin and remove_element (note good)

@@ -38,5 +38,5 @@ choose the most appropriate solution(s) for optimized data sorting.*
 - ### [Tutorial Duarte from 42 Lisboa](https://github.com/duarte3333/Push_Swap)
 - ### [Tutorial Paula Hemsi](https://github.com/paulahemsi/push_swap)
 ## Tools
-### [Random list](https://www.random.org/integers/)
+### [Random list](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php)
 ### [Tester](https://github.com/LeoFu9487/push_swap_tester)

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 18:04:46 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 22:35:12 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/20 22:24:38 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_nbr(t_stack *node);
 void	print_best(t_stack *node);
 void	print_index(t_stack *node);
-// void	print_cost(t_stack *node);
+void	print_cost(t_stack *node);
 void	the_end(int argc, char **argv, t_stack *a, t_stack *b);
 
 int	main(int argc, char *argv[])
@@ -40,17 +40,13 @@ int	main(int argc, char *argv[])
 /* DELETAR PRINTF */
 void	the_end(int argc, char **argv, t_stack *a, t_stack *b)
 {
+	printf("Stack A:\n");
 	print_nbr(a);
-	printf("\n------\n");
+	printf("\nStack B:\n");
 	print_nbr(b);
-	printf("\n------\n");
-	print_best(b);
-	printf("\n------\n");
-	print_cost(a);
-	printf("\n------\n");
-	print_cost(b);
-	printf("\n------\n");
+	printf("------\n");
 	printf("Moves: %d\n", data()->moves);
+	printf("------\n");
 	free_arr(argc, argv);
 	free_stack(&a);
 	free_stack(&b);
@@ -62,7 +58,6 @@ void	print_nbr(t_stack *node)
 	t_stack	*curr;
 
 	curr = node;
-	printf("Sorted: ");
 	while (curr != NULL)
 	{
 		printf("%d ", curr->nbr);

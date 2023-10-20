@@ -6,11 +6,15 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:59 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 22:33:54 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/20 22:25:16 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	call_functions(t_stack **a, t_stack **b);
+void	last_rotates(t_stack **a);
+int		check_bigger_nbr(t_stack **a);
 
 void	sort_bigger(t_stack **a, t_stack **b)
 {
@@ -29,9 +33,41 @@ void	sort_bigger(t_stack **a, t_stack **b)
 			ra(a);
 		s_len = struct_len(*a);
 	}
+	call_functions(a, b);
+}
+
+void	call_functions(t_stack **a, t_stack **b)
+{
 	sort_5(a, b);
-	add_best_friend(*a, b);
-	add_index(a);
-	add_index(b);
-	printf("%d\n", get_moves(*a, (*a)->next->index));
+	while ((*b))
+	{
+		add_index(a);
+		add_index(b);
+		add_best_friend(*a, b);
+		add_cost(a, b);
+		moves_top(a, b);
+	}
+	last_rotates(a);
+}
+
+void	last_rotates(t_stack **a)
+{
+	while (check_bigger_nbr(a))
+		ra(a);
+}
+
+int	check_bigger_nbr(t_stack **a)
+{
+	t_stack	*curr;
+	int		check;
+
+	curr = *a;
+	check = 0;
+	while (curr->next)
+	{
+		if ((curr->nbr) > (curr->next->nbr))
+			check++;
+		curr = curr->next;
+	}
+	return (check);
 }
