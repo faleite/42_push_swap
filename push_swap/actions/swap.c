@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:43:53 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 19:29:17 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:58:45 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void	swap(t_stack **node)
 void	sa(t_stack **node)
 {
 	swap(node);
-	data()->moves++;
-	write(2, "sa\n", 3);
+	write(1, "sa\n", 3);
 }

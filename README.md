@@ -17,11 +17,40 @@ choose the most appropriate solution(s) for optimized data sorting.*
 :------:|:-----:|
 [**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed :atom:**
 
+## Usage
+
+```sh
+git clone git@github.com:faleite/42_push_swap.git
+
+cd push_swap
+
+make
+
+./pushswap <numbers to be sorted>
+```
+
+### Numbers can be passed:
+
+* as single arguments
+```sh
+./push_swap 1 3 7 4 2
+```
+* as a string 
+```sh
+./push_swap "1 3 7 4 2"
+``` 
+* as an environment variable 
+```sh
+ARG="1 3 7 4 2"; ./push_swap $ARG
+```
 ## Notes
-## [Algorithm](./dcs/algorithm.md)
-## [Workflow](./dcs/mapa_org.md)
-## [Linked list](./dcs/linked_list.md)
-## [Memory Process](./dcs/memory_process.png)
+### [Algorithm](./dcs/algorithm.md)
+### [Workflow](./dcs/mapa_org.md)
+### [Linked list](./dcs/linked_list.md)
+### [Memory Process](./dcs/memory_process.png)
+## Tools
+### [Random list](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php)
+### [Tester](https://github.com/LeoFu9487/push_swap_tester)
 ## Articles
 - ### [A journey to find most efficient sorting algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - ### [The least amount of moves with two stacks](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
@@ -37,6 +66,3 @@ choose the most appropriate solution(s) for optimized data sorting.*
 - ### [ The C programming language: Declarations, not that simple bro!](https://www.youtube.com/watch?v=WksGf6DKwXA)
 - ### [Tutorial Duarte from 42 Lisboa](https://github.com/duarte3333/Push_Swap)
 - ### [Tutorial Paula Hemsi](https://github.com/paulahemsi/push_swap)
-## Tools
-### [Random list](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php)
-### [Tester](https://github.com/LeoFu9487/push_swap_tester)

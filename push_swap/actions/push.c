@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:57:27 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/18 17:55:12 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:59:00 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ void	push(t_stack **src, t_stack **dst)
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	data()->moves++;
-	write(2, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	pa(t_stack **b, t_stack **a)
 {
 	push(b, a);
-	data()->moves++;
-	write(2, "pa\n", 3);
+	write(1, "pa\n", 3);
 }

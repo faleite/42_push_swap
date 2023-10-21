@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:40:42 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 19:30:13 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 16:27:04 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	err_case(int argc, char **argv)
 {
-	write(2, "Error\n", 7);
+	write(2, "Error\n", 6);
 	free_arr(argc, argv);
 	exit(1);
 }
@@ -29,13 +29,6 @@ void	free_arr(int argc, char **argv)
 	while (argv && argv[i])
 		free(argv[i++]);
 	free(argv);
-}
-
-t_data	*data(void)
-{
-	static t_data	d;
-
-	return (&d);
 }
 
 void	free_stack(t_stack **root)

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:57:09 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/20 20:32:11 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:42:22 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 # include "stdlib.h" // malloc, free, exit
 # include "unistd.h" // write, read, close
-# include "stdio.h" // perror, printf  ***DELETAR**
 
 typedef struct s_stack
 {
@@ -28,19 +27,6 @@ typedef struct s_stack
 	int				cost;
 	struct s_stack	*next;
 }	t_stack;
-
-// typedef struct s_best
-// {
-// 	int	index;
-// 	int	best;
-// 	int	cost;
-// }	t_best;
-
-typedef struct s_data
-{
-	int	rotation;
-	int	moves;
-}	t_data;
 
 /* Utils */
 int			ft_strcmp(char *s1, char *s2);
@@ -57,17 +43,18 @@ void		err_case(int argc, char **argv);
 void		check_args(int argc, char **argv);
 void		free_arr(int argc, char **argv);
 void		null_args(char **argv);
+void		the_end(int argc, char **argv, t_stack *a, t_stack *b);
 
 /* stack utils */
-// void		insert_begin(t_stack **root, int value);
-// void		remove_element(t_stack **root, int value);
 void		insert_end(t_stack **root, int value);
 void		free_stack(t_stack **root);
-void		check_sorting(t_stack **a, int argc, char **argv);
+void		rotation_a(t_stack **a, int index);
+void		rotation_b(t_stack **b, int index);
+int			cost_win(t_stack *b);
+int			check_sorting(t_stack **a);
 int			struct_len(t_stack *root);
 int			struct_sum(t_stack *root);
 t_stack		*add_data(int argc, char **argv);
-t_data		*data(void);
 
 /* Actions */
 void		swap(t_stack **node);
@@ -95,6 +82,8 @@ void		add_best_friend(t_stack *a, t_stack **b);
 void		add_index(t_stack **node);
 void		add_cost(t_stack **a, t_stack **b);
 void		moves_top(t_stack **a, t_stack **b);
+void		call_functions(t_stack **a, t_stack **b);
+void		last_rotates(t_stack **a);
 int			get_moves(t_stack *node, int index);
 int			best_friend(t_stack *a, int nbr_b);
 

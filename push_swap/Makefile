@@ -65,7 +65,7 @@ re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)\n"
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
 
-v:
-	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap "1 2 3 4""5"
+# v:
+#	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./push_swap "1 2 3 4""5"
 
 .PHONY: all clean fclean re

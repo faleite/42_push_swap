@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:03:11 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/15 15:29:47 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 16:15:53 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	validate_arguments(int argc, char **argv)
 	while (argv && argv[i])
 	{
 		j = 0;
-		if (argv[i][j] == '-' || argv[i][j] == '+')
+		if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1] != '\0')
 			j++;
 		while (argv[i][j])
 		{
@@ -89,7 +89,7 @@ void	null_args(char **argv)
 	{
 		if (argv[i][0] <= 32)
 		{
-			write(2, "Error\n", 7);
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -101,7 +101,7 @@ void	null_args(char **argv)
 		{
 			if ((argv[1][i] <= 32 && argv[1][i + 1] <= 32))
 			{
-				write(2, "Error\n", 7);
+				write(2, "Error\n", 6);
 				exit(1);
 			}
 			i++;

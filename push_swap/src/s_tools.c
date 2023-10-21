@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:11:15 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 18:36:44 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:35:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	struct_sum(t_stack *root)
 	return (s_sum);
 }
 
-void	check_sorting(t_stack **a, int argc, char **argv)
+int	check_sorting(t_stack **a)
 {
 	t_stack	*curr;
 	int		check;
@@ -72,12 +72,7 @@ void	check_sorting(t_stack **a, int argc, char **argv)
 			check++;
 		curr = curr->next;
 	}
-	if (!check)
-	{
-		free_arr(argc, argv);
-		free_stack(a);
-		exit(1);
-	}
+	return (check);
 }
 
 void	insert_end(t_stack **root, int value)
@@ -100,37 +95,3 @@ void	insert_end(t_stack **root, int value)
 		curr = curr->next;
 	curr->next = new_node;
 }
-
-// void	insert_begin(t_stack **root, int value)
-// {
-// 	t_stack	*new_node;
-
-// 	new_node = malloc(sizeof(t_stack));
-// 	if (!new_node)
-// 		exit(1);
-// 	new_node->nbr = value;
-// 	new_node->next = *root;
-// 	*root = new_node;
-// }
-
-// /* Remove an element of the stack (except the first element) */
-// void	remove_element(t_stack **root, int value)
-// {
-// 	t_stack	*to_remove;
-// 	t_stack	*curr;
-
-// 	if (!*root)
-// 		return ;
-// 	curr = *root;
-// 	while (curr && curr->next)
-// 	{
-// 		if (curr->next->nbr == value)
-// 		{
-// 			to_remove = curr->next;
-// 			curr->next = curr->next->next;
-// 			free(to_remove);
-// 			return ;
-// 		}
-// 		curr = curr->next;
-// 	}
-// }

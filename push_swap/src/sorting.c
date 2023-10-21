@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:58:44 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/19 18:24:45 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:18:27 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,5 @@ void	sorting(t_stack **a, t_stack **b)
 void	sort_2(t_stack **a)
 {
 	if ((*a)->nbr > (*a)->next->nbr)
-	{
-		swap(a);
-		write(2, "sa\n", 3);
-		data()->moves++;
-	}
+		sa(a);
 }

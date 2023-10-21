@@ -6,15 +6,11 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 20:20:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/10/20 20:43:25 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:34:30 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	rotation_a(t_stack **a, int index);
-void	rotation_b(t_stack **b, int index);
-int		cost_win(t_stack *b);
 
 void	moves_top(t_stack **a, t_stack **b)
 {
