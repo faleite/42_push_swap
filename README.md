@@ -21,11 +21,14 @@ choose the most appropriate solution(s) for optimized data sorting.*
 
 ```sh
 git clone git@github.com:faleite/42_push_swap.git
-
+```
+```sh
 cd push_swap
-
+```
+```sh
 make
-
+```
+```sh
 ./pushswap <numbers to be sorted>
 ```
 
