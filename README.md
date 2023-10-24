@@ -22,7 +22,8 @@ choose the most appropriate solution(s) for optimized data sorting.*
 
  Skills | Grade |
 :------:|:-----:|
-[**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **Subscribed :atom:**
+[**Unix**] [**Rigor**] [**Algorithmis & AI**] [**Imperative programming**] | **:white_check_mark: 100%**
+ <!-- **Subscribed :atom:** -->
 
 **The goal is to sort in ascending order numbers into *stack_a* using the following operations:**
 command  | action |
@@ -68,6 +69,7 @@ make
 ```sh
 ARG="1 3 7 4 2"; ./push_swap $ARG
 ```
+[↑ Index ↑](#top)
 
 ## Algorithm used 
 *by [duarte3333](https://github.com/duarte3333/Push_Swap)*
@@ -274,6 +276,8 @@ Stack A | Stack B
 - Using this algorithm it is possible to organize stacks of any size,\
 the method is always the same.
 
+[↑ Index ↑](#top)
+
 ## Study resources
 - [Linked list](./dcs/linked_list.md)
 - [Memory Process](./dcs/memory_process.png)
@@ -291,11 +295,15 @@ the method is always the same.
 - [Push swap tutorial](https://github.com/duarte3333/Push_Swap) by [Duarte3333](https://github.com/duarte3333)
 - [Push swap tutorial](https://github.com/paulahemsi/push_swap) by [Paula Hemsi](https://github.com/paulahemsi)
 
+[↑ Index ↑](#top)
+
 ## Tools
 - [Random list](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php)
 - [push swap visualizer](https://github.com/o-reo/push_swap_visualizer) by [o-reo](https://github.com/o-reo)
 - [push swap simulator](https://phemsi-a.itch.io/push-swap) by [Paula Hemsi](https://github.com/paulahemsi)
 - [push swap tester](https://github.com/LeoFu9487/push_swap_tester) by [LeoFu](https://github.com/LeoFu9487)
+
+[↑ Index ↑](#top)
 
 ## Workflow
 <details>
